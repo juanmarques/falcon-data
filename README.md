@@ -52,8 +52,7 @@ $ mvn docker:build
 
 Run docker image:
 ```sh
-$ docker run -d -p 8080:8080 \
-$ 1juanmarques/falcon-data
+$ docker run -d -p 8080:8080 1juanmarques/falcon-data
 ```
 
 #### Or try [Play with Docker] to quickly setup Docker and run in browser:
