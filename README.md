@@ -30,7 +30,7 @@ $ git clone https://github.com/juanmarques/falcon-data
 
 Build and run the **FalconData** application:
 ```sh
-$ cd FalconData
+$ cd falcon-data
 
 $ mvn clean package
 
