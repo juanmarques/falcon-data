@@ -17,7 +17,9 @@ services:
         ports:
             - "6379:6379"
         entrypoint: redis-server
-        restart: always    
+        restart: always
+        command:
+         - --protected-mode no 
             
     spring-chat-1:
         image: 1juanmarques/falcon-data
