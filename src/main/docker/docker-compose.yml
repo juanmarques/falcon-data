@@ -12,6 +12,7 @@ services:
         image: bitnami/redis
         environment:
             - REDIS_PASSWORD=SuperRedisPassword
+            - HOSTNAME=redis
         ports:
             - "6379:6379"
     spring-chat-1:
