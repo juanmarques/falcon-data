@@ -1,15 +1,10 @@
 version: '3.2'
-
-networks:
-  app-tier:
-    driver: bridge
 services:
     nginx:
         image: 1juanmarques/nginx-lb
         ports:
             - "80:80"
         depends_on:
-            - redis
             - spring-chat-1
             - spring-chat-2
             - spring-chat-3
@@ -17,8 +12,6 @@ services:
         image: bitnami/redis
         environment:
             - REDIS_PASSWORD=SuperRedisPassword
-        networks:
-            - app-tier
         ports:
             - "6379:6379"
             
@@ -29,17 +22,20 @@ services:
             - SPRING_REDIS_PASSWORD=SuperRedisPassword
         ports:
             - "8080"
-        networks:
-            - app-tier
+            
+    depends_on:
+      - redis
+            
     spring-chat-2:
         image: 1juanmarques/falcon-data
         environment:
             - SPRING_REDIS_HOST=redis
             - SPRING_REDIS_PASSWORD=SuperRedisPassword
         ports:
-            - "8080"
-        networks:
-            - app-tier
+            - "8080"            
+    depends_on:
+      - redis
+      
     spring-chat-3:
         image: 1juanmarques/falcon-data
         environment:
@@ -47,5 +43,6 @@ services:
             - SPRING_REDIS_PASSWORD=SuperRedisPassword
         ports:
             - "8080"
-        networks:
-            - app-tier
+            
+    depends_on:
+      - redis
