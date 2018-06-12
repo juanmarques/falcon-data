@@ -5,16 +5,20 @@ services:
         ports:
             - "80:80"
         depends_on:
+            - redis
             - spring-chat-1
             - spring-chat-2
             - spring-chat-3
     redis:
+        container_name: redis
         image: bitnami/redis
         environment:
             - REDIS_PASSWORD=SuperRedisPassword
-            - HOSTNAME=redis
         ports:
             - "6379:6379"
+        entrypoint: redis-server
+        restart: always    
+            
     spring-chat-1:
         image: 1juanmarques/falcon-data
         environment:
