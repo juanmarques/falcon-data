@@ -5,30 +5,30 @@ services:
         ports:
             - "80:80"
         depends_on:
-            - falcon-chat-1
-            - falcon-chat-2
-            - falcon-chat-3
+            - spring-chat-1
+            - spring-chat-2
+            - spring-chat-3
     redis:
         image: bitnami/redis
         environment:
             - REDIS_PASSWORD=SuperRedisPassword
         ports:
-            - "6379:6379"
-    falcon-chat-1:
+            - "0.0.0.0:6379:6379"
+    spring-chat-1:
         image: 1juanmarques/falcon-data
         environment:
             - SPRING_REDIS_HOST=redis
             - SPRING_REDIS_PASSWORD=SuperRedisPassword
         ports:
             - "8080"
-    falcon-chat-2:
+    spring-chat-2:
         image: 1juanmarques/falcon-data
         environment:
             - SPRING_REDIS_HOST=redis
             - SPRING_REDIS_PASSWORD=SuperRedisPassword
         ports:
             - "8080"
-    falcon-chat-3:
+    spring-chat-3:
         image: 1juanmarques/falcon-data
         environment:
             - SPRING_REDIS_HOST=redis
