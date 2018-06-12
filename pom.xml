@@ -140,7 +140,6 @@
 						<id>docker-build-and-push</id>
 						<goals>
 							<goal>build</goal>
-							<goal>push</goal>
 						</goals>
 						<phase>install</phase>
 					</execution>
