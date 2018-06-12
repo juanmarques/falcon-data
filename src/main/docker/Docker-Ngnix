@@ -1,3 +1,11 @@
 FROM nginx
 # Copy custom configuration file from the current directory
-COPY nginx.conf /etc/nginx/nginx.conf
+
+RUN rm -v /etc/nginx/nginx.conf
+RUN rm /etc/nginx/conf.d/default.conf
+
+ADD nginx/nginx.conf /etc/nginx/
+
+RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+
+CMD service nginx start
