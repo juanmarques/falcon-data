@@ -11,7 +11,7 @@ services:
     redis:
         image: bitnami/redis
         environment:
-            #- REDIS_PASSWORD=SuperRedisPassword
+         - ALLOW_EMPTY_PASSWORD=yes
         ports:
             - "0.0.0.0:6379:6379"
     spring-chat-1:
