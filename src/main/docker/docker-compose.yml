@@ -18,7 +18,7 @@ services:
         image: 1juanmarques/falcon-data
         environment:
             - SPRING_REDIS_HOST=redis
-            - SPRING_REDIS_PASSWORD=SuperRedisPassword
+            #- SPRING_REDIS_PASSWORD=SuperRedisPassword
         ports:
             - "8080"
     spring-chat-2:
